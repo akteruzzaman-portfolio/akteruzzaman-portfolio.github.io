@@ -1,0 +1,252 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@layer base {
+  :root {
+    --color-primary: #00D2FF;
+    --color-secondary: #0284C7;
+    --color-accent: #38BDF8;
+    --color-glow: rgba(0, 210, 255, 0.45);
+    --color-glow-subtle: rgba(0, 210, 255, 0.16);
+    --theme-bg: #090d16;
+    --theme-fg: #F8FAFC;
+    --theme-surface: rgba(18, 24, 40, 0.85);
+    --theme-border: rgba(255, 255, 255, 0.14);
+    --theme-glass: rgba(255, 255, 255, 0.07);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  }
+
+  html.light {
+    --theme-bg: #F8FAFC;
+    --theme-fg: #0F172A;
+    --theme-surface: rgba(255, 255, 255, 0.96);
+    --theme-border: rgba(0, 0, 0, 0.12);
+    --theme-glass: rgba(0, 0, 0, 0.05);
+  }
+
+  html {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: var(--theme-bg);
+    color: var(--theme-fg);
+    line-height: 1.65;
+    letter-spacing: -0.01em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  html.light body {
+    background-color: #F8FAFC;
+    color: #0F172A;
+  }
+
+  h1, h2, h3, h4, h5, h6, .font-heading {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    letter-spacing: -0.015em;
+    font-weight: 700;
+  }
+}
+
+/* Bulletproof Text Gradient Clipping & Background-clip across all WebKit, Chromium, Firefox, Safari */
+.bg-clip-text,
+[class*="bg-clip-text"] {
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+
+.text-gradient-brand,
+.gradient-brand-text {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 50%, var(--color-secondary) 100%) !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  color: transparent !important;
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+@supports not (-webkit-background-clip: text) {
+  .bg-clip-text,
+  [class*="bg-clip-text"],
+  .text-gradient-brand,
+  .gradient-brand-text {
+    background: none !important;
+    color: var(--color-primary) !important;
+    -webkit-text-fill-color: var(--color-primary) !important;
+  }
+}
+
+/* Dynamic Gradients using theme variables */
+.bg-gradient-brand {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%) !important;
+}
+
+.bg-gradient-neon {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%) !important;
+}
+
+.bg-gradient-brand-radial {
+  background: radial-gradient(circle at center, var(--color-primary) 0%, var(--color-secondary) 40%, var(--color-accent) 80%, transparent 100%) !important;
+}
+
+.title-gradient {
+  background: linear-gradient(135deg, #ffffff 15%, #f1f5f9 45%, var(--color-primary) 75%, var(--color-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.light .title-gradient {
+  background: linear-gradient(135deg, #0f172a 20%, #334155 50%, var(--color-primary) 85%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
+}
+
+.accent-gradient {
+  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 50%, var(--color-secondary) 100%);
+}
+
+.text-gradient-cyan-purple {
+  background: linear-gradient(120deg, var(--color-accent) 10%, var(--color-primary) 70%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.border-gradient-brand {
+  border-image: linear-gradient(135deg, var(--color-primary), var(--color-secondary), var(--color-accent)) 1;
+}
+
+/* Glassmorphism & Cyber Cards - Enhanced contrast for seamless scrolling readability */
+.glass-panel {
+  background: rgba(10, 14, 26, 0.90);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 12px 38px 0 rgba(0, 0, 0, 0.65);
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+html.light .glass-panel {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 36px 0 rgba(0, 0, 0, 0.08);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(14, 20, 36, 0.96);
+  border-color: var(--color-primary);
+  box-shadow: 0 16px 44px -10px rgba(0, 0, 0, 0.7), 0 0 25px -5px var(--color-glow);
+  transform: translateY(-2px);
+}
+
+html.light .glass-panel-hover:hover {
+  background: #ffffff;
+  border-color: var(--color-primary);
+  box-shadow: 0 16px 44px -10px rgba(0, 0, 0, 0.12), 0 0 25px -5px var(--color-glow-subtle);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #fff;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html.light .glass-pill {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #0f172a;
+}
+
+.glass-pill:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--color-primary);
+}
+
+html.light .glass-pill:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: var(--color-primary);
+}
+
+/* Primary Button with dynamic neon gradient & high-impact hover */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%);
+  color: #fff;
+  border-radius: 9999px;
+  font-weight: 700;
+  box-shadow: 0 4px 20px -2px var(--color-glow);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 0 30px var(--color-glow), 0 8px 24px -4px var(--color-glow-subtle);
+  transform: translateY(-1.5px);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Subtle Grid Background Pattern */
+.subtle-grid {
+  background-size: 40px 40px;
+  background-image: linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Custom Cursor Smoothing */
+.custom-cursor {
+  will-change: transform;
+  pointer-events: none;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Subtle Spotlights */
+.spotlight-purple {
+  background: radial-gradient(circle, rgba(146, 63, 255, 0.15) 0%, rgba(88, 63, 255, 0.05) 50%, transparent 70%);
+}
+
+.spotlight-blue {
+  background: radial-gradient(circle, rgba(125, 191, 255, 0.12) 0%, rgba(88, 63, 255, 0.04) 50%, transparent 70%);
+}
+
+.glow-btn {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glow-btn:hover {
+  box-shadow: 0 0 25px rgba(146, 63, 255, 0.5), 0 0 45px rgba(125, 191, 255, 0.3);
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #252233;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #583FFF;
+}
+

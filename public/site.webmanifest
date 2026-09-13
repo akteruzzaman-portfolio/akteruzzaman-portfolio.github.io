@@ -1,0 +1,25 @@
+{
+  "name": "AKTERUZZAMAN — Digital Marketer & Creative Web Developer",
+  "short_name": "AKTERUZZAMAN",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/akteruzzaman.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/akteruzzaman.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#090714",
+  "background_color": "#090714",
+  "display": "standalone",
+  "start_url": "/"
+}

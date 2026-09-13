@@ -1,0 +1,16 @@
+[
+  {
+    "id": "ORD-611324",
+    "serviceId": "custom-service",
+    "serviceTitle": "High-Converting Landing Page",
+    "category": "General Service",
+    "price": "Custom Quote",
+    "billingType": "one-time",
+    "clientName": "Jane Doe",
+    "clientEmail": "jane@example.com",
+    "projectRequirements": "Standard service package requested",
+    "paymentPreference": "Stripe / Card",
+    "createdAt": "2026-09-12T09:50:11.324Z",
+    "status": "new"
+  }
+]
